@@ -1,10 +1,12 @@
 #pragma once
 
+#include <unistd.h>
+
 namespace trace
 {
 	long traceme();
 
-	pid_t trace_wait(int status);
+	long cont(pid_t pid);
 
 	long read_memory(pid_t pid, void* addr);
 

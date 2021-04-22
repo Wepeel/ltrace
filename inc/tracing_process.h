@@ -16,5 +16,13 @@ public:
 
 private:
 
-	pid_t m_pid;
+	long traceme();
+
+	long cont();
+
+
+private:
+
+	pid_t m_child_pid;
+	int m_wait_status;
 };

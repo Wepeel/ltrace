@@ -1,5 +1,7 @@
 #pragma once
 
+#include <unistd.h>
+
 enum fork_status
 {
 	PID_ERROR = -1,
@@ -13,9 +15,9 @@ enum wait_status
 
 namespace process_ops
 {
-	pid_t fork();
+	pid_t trace_fork();
 
-	int execvp(const char* path, char* const argv[]);
+	int trace_execvp(const char* path, char* const argv[]);
 
-	pid_t wait(int* status);
+	pid_t trace_wait(int* status);
 }

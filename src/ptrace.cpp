@@ -11,9 +11,9 @@ long trace::traceme()
 	return ptrace(PTRACE_TRACEME, NULL, NULL, NULL);
 }
 
-pid_t trace::trace_wait(int status)
+long trace::cont(pid_t pid)
 {
-	return wait(status);
+	return ptrace(PTRACE_CONT, pid, NULL, NULL);
 }
 
 long trace::read_memory(pid_t pid, void* addr)
