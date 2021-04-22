@@ -53,7 +53,7 @@ Elf64_Ehdr elf_file::get_elf_header()
 	return header;
 }
 
-Elf64_Shdr get_section_header(const Elf64_Word section_type)
+Elf64_Shdr elf_file::get_section_header(const Elf64_Word section_type)
 {
 	Elf64_Ehdr elf_header = get_elf_header();
 
@@ -64,7 +64,6 @@ Elf64_Shdr get_section_header(const Elf64_Word section_type)
 
 	for (int index = 0; index < elf_header.e_shnum; ++index)
 	{
-		m_file.seek(elf_header.e_shentsize, SEEK_CUR);
 		m_file.read(header);
 
 		if (section_type == header.sh_type)
@@ -74,7 +73,8 @@ Elf64_Shdr get_section_header(const Elf64_Word section_type)
 	}
 }
 
-std::vector<std::string> elf_file::get_dynamic_symbol_table()
+std::vector<std::string> elf_file::get_dynamic_imports()
 {
-	get_section_header(SHT_DYNSYM);
+	Elf64_Shdr dynsym_section_header = get_section_header(SHT_DYNSYM);
+	Elf64_Shdr dynsym_section_header = get_section_header(SHT_STRTAB);
 }

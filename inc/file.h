@@ -19,7 +19,7 @@ public:
 	template<typename Type>
 	void read(Type& obj)
 	{
-		const size_t read_ret_value = fread(obj, sizeof(obj), 1, m_ptr);
+		const size_t read_ret_value = fread(&obj, sizeof(obj), 1, m_ptr);
 		if (1 != read_ret_value)
 		{
 			// TODO: Error

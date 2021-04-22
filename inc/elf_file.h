@@ -15,9 +15,9 @@ public:
 
 	Elf64_Ehdr get_elf_header();
 
-	Elf64_Shdr get_section_header(Elf64_Word section_type);
+	Elf64_Shdr get_section_header(const Elf64_Word section_type);
 
-	std::vector<std::string> get_dynamic_symbol_table();
+	std::vector<std::string> get_dynamic_imports();
 
 
 private:
