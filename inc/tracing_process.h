@@ -13,13 +13,12 @@ public:
 
 	long write_memory(void* addr, void* data);
 
+	long cont();
+
 
 private:
 
 	long traceme();
-
-	long cont();
-
 
 private:
 

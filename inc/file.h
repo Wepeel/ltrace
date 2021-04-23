@@ -1,12 +1,11 @@
 #pragma once
 #include <cstdio>
 #include <string>
+#include "types.h"
 
 class file
 {
 public:
-
-	using byte = unsigned char;
 
 	file(const std::string& path, const char* mode);
 

@@ -33,19 +33,17 @@ void tracing_process::init(const char* path, char* const argv[])
 		{
 			// TODO: Error
 		}
-
-		cont();
 	}
 }
 
 long tracing_process::read_memory(void* addr)
 {
-	trace::read_memory(m_child_pid, addr);
+	return trace::read_memory(m_child_pid, addr);
 }
 
 long tracing_process::write_memory(void* addr, void* data)
 {
-	trace::write_memory(m_child_pid, addr, data);
+	return trace::write_memory(m_child_pid, addr, data);
 }
 
 long tracing_process::traceme()

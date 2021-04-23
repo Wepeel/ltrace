@@ -15,11 +15,15 @@ std::string file::read_string()
 {
 	std::string ret;
 
-	byte byte_read;
+	types::byte byte_read;
 
 	do
 	{
-		fread(&byte_read, sizeof(byte), 1, m_ptr);
+		const size_t read_result = fread(&byte_read, sizeof(byte_read), 1, m_ptr);
+		if (1 != read_result)
+		{
+			// TODO:
+		}
 		ret.push_back(byte_read);
 	} while (byte_read);
 
