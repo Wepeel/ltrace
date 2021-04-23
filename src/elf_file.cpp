@@ -91,10 +91,13 @@ Elf64_Shdr elf_file::get_section_header(const std::string& section_name)
 	{
 		header = m_file.read<Elf64_Shdr>();
 
-		/*if (section_name == header.sh_name)
+		m_file.seek(strtab_section_header.sh_offset + header.sh_name, SEEK_SET);
+		std::string symbol = m_file.read_string();
+
+		if (section_name == symbol)
 		{
 			return header;
-		}*/
+		}
 	}
 
 	return Elf64_Shdr();

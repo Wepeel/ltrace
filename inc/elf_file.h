@@ -28,7 +28,6 @@ private:
 
 	Elf64_Shdr get_section_string_table_header();
 
-
 private:
 
 	file m_file;
