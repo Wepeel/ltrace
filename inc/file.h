@@ -17,13 +17,16 @@ public:
 	const file& operator=(const file&) = delete;
 
 	template<typename Type>
-	void read(Type& obj)
+	Type read()
 	{
+		Type obj;
 		const size_t read_ret_value = fread(&obj, sizeof(obj), 1, m_ptr);
 		if (1 != read_ret_value)
 		{
 			// TODO: Error
 		}
+
+		return obj;
 	}
 
 	template<typename Type>
@@ -35,6 +38,8 @@ public:
 			// TODO: Error
 		}
 	}
+
+	std::string read_string();
 
 	void seek(long offset, int origin);
 

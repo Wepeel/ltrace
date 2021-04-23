@@ -11,6 +11,21 @@ file::~file()
 	close();
 }
 
+std::string file::read_string()
+{
+	std::string ret;
+
+	byte byte_read;
+
+	do
+	{
+		fread(&byte_read, sizeof(byte), 1, m_ptr);
+		ret.push_back(byte_read);
+	} while (byte_read);
+
+	return ret;
+}
+
 void file::seek(long offset, int origin)
 {
 	const int seek_ret_val = fseek(m_ptr, offset, origin);
